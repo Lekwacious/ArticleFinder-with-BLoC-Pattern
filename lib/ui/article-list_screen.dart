@@ -1,5 +1,7 @@
+import 'package:counterapp/bloc/article_details_bloc.dart';
 import 'package:counterapp/bloc/article_list_bloc.dart';
 import 'package:counterapp/bloc/bloc_provider.dart';
+import 'package:counterapp/ui/article_details_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../data/article.dart';
@@ -64,7 +66,11 @@ Widget _buildSearchResults(List<Article> results) {
         ),
         // 2
         onTap: () {
-          // TODO: Later will be implemented
+          Navigator.push(context, MaterialPageRoute(
+              builder: (context) => BlocProvider(bloc: ArticleDetailsBloc(id: article.id), child: ArticleDetailsScreen(),)
+
+          ),
+          );
         },
       );
     },
